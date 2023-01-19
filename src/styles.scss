@@ -1,1 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Proxima Nova", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #384062;
+    text-align: left;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-size-adjust: none;
+    font-size: 16px;
+    line-height: 1.3;
+    width: 100%;
+}
+
+/* typography */
+
+h1, h2, h3, h4, .section-legal .section-legal__body dt, .section-legal .section-legal-security__body dt, h5, h6 {
+    font-weight: 600;
+}
+
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, 
+.section-legal .section-legal__body dt:last-child, 
+.section-legal .section-legal-security__body dt:last-child, 
+h5:last-child, h6:last-child, p:last-child {
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 35px;
+    line-height: 1.2;
+    display: block;
+}
+
+h5 {
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.44;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, main {
+    display: block;
+}
+
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+input[type=text], input[type=password], input[type=date], input[type=datetime], input[type=datetime-local], input[type=month], input[type=week], input[type=email], input[type=number], input[type=search], input[type=tel], input[type=time], input[type=url], input[type=color], textarea, a[href^=tel] {
+    appearance: none;
+}
+
+[type=search] {
+    outline-offset: -2px;
+    -webkit-appearance: none;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+button, input {
+    overflow: visible;
+}
+
+input, button, select, optgroup, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+
+
+
+/* container */
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px){
+    .container {
+        max-width: 1200px;
+    }
+}

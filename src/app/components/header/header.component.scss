@@ -1,0 +1,126 @@
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 42px 0;
+    background: transparent;
+    z-index: 999;
+    transition: background 0.2s ease-in-out, padding 0.2s ease-in-out;
+
+    @media (max-width: 767px){
+        .header {
+            padding: 28px 0;
+        }
+    }
+
+    &.sticky {
+        padding: 15px 0;
+        background: #121A3E;
+    }
+
+    .logo {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 0;
+    }
+
+    .btn-menu {
+        display: block;
+        position: relative;
+        width: 28px;
+        height: 22px;
+        background: transparent;
+    
+        & span:first-child {
+            top: 0;
+        }
+    
+        & span:nth-child(2) {
+            top: 9px;
+        }
+    
+        & span:last-child {
+            bottom: 0;
+        }
+    
+        & span {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+    
+    .login-btn {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .get-started-btn {
+        min-width: 122px;
+        padding: 13px 10px;
+        text-decoration: none;
+        background: #FED700;
+        border-color: #FED700;
+        border: 1px solid #384062;
+        border-radius: 4.8px;
+        color: #384062;
+        font-family: "Proxima Nova", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .menu  {
+        & > div{
+            color: #fff;
+            position: relative;
+            font-size: 16px;
+            font-weight: 600;
+            white-space: nowrap; 
+            text-align: -webkit-match-parent;
+            display: block;
+            letter-spacing: -0.01em;
+            opacity: 1;
+            text-decoration: none;
+            z-index: 6;
+            transition: color 0.5s ease-in-out;
+            cursor: pointer;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                width: 53px;
+                height: 14px;
+                margin: 26px 0 0 -35px;
+                background: url(https://buttercms.com/static/v2/images/shape@2x.bc4cf00dd609.png) no-repeat 0 0;
+                background-size: cover;
+                background-position: center center;
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                margin-top: 5px;
+                background: #FED700;
+                transition: width 0.5s ease-in-out;
+            }
+        }
+    }    
+}

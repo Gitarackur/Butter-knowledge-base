@@ -1,0 +1,95 @@
+<div>
+    <app-header [butterImg]="homePageData?.fields['knowledge-base_hero_img']"></app-header>
+
+    <div class="intro intro--small"
+        style="background-image: url(https://buttercms.com/static/v2/images/intro-bg-2.4af98db9356f.jpg);">
+        <div class="container">
+            <div class="intro__inner">
+                <div class="intro__head">
+                    <h1>
+                        {{ homePageData?.fields['knowledge-base_title'] }}
+                    </h1>
+                </div>
+
+                <div class="intro__content">
+                    <div class="search">
+                        <form>
+                            <i class="ico-search">
+                                <svg>
+                                    <use
+                                        xlink:href="https://buttercms.com/static/v2/images/sprite.1229afca4c5f.svg#ico-search">
+                                    </use>
+                                </svg>
+                            </i>
+
+                            <input [(ngModel)]="searchText" type="search" name="query" id="query" value="" placeholder="Search here" class="search__field"/>
+
+                            <button (click)="handleSearch()" type="submit" class="search__btn btn btn--solid-yellow">
+                                <i class="ico-arrow-send-white">
+                                    <!-- <svg>
+                                        <use
+                                            xlink:href="https://buttercms.com/static/v2/images/sprite.1229afca4c5f.svg#ico-arrow-send-white">
+                                        </use>
+                                    </svg> -->
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.<path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg> -->
+                                    <svg style="color: white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" fill="white"></path> </svg>
+                                </i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <main class="main">
+        <section class="container section-services-alt">
+            <div class="section-services__head">
+                <h2>
+                    {{ homePageData?.fields['knowlege-base_text'] }}
+                </h2>
+
+                <p>
+                    {{ homePageData?.fields['knowledge-base_subtitle'] }}
+                </p>
+            </div>
+
+            <div class="section-services__body">
+                <div class="services-alt">
+                    <div class="flex flex-wrap">
+
+                        <div *ngFor="let data of homePageData?.fields['knowledge-base-sections']" class="w-full md:w-4/12">
+                            <div class="service-alt">
+                                <div class="service__head">
+                                    <div class="service__image">
+                                        <img [src]="data?.fields?.section_image" alt="How To's">
+                                        <!-- <img src="https://cdn.buttercms.com/JsA9TWYQ5upTxBFMiNr9" alt="How To's">
+                                        <img src="https://cdn.buttercms.com/A0TE2mfzRPWZMAEhmz7X" alt="Content Modeling Basics">
+                                        <img src="https://cdn.buttercms.com/nxYRRxBQ6KR92uX2hhQa" alt="Write API">
+                                        <img src="https://cdn.buttercms.com/hEop7hFSIUfAuP3Mjwyw" alt="FAQs"> -->
+                                    </div>
+
+                                    <div class="service__content">
+                                        <h5>
+                                            {{ data?.fields?.section_name }}
+                                        </h5>
+                                    </div>
+                                </div>
+
+                                <div class="service__body">
+                                    <p>
+                                        {{ data?.fields?.section_description }}
+                                    </p>
+                                </div>
+
+                                <!-- <a href="/kb/category/how-to/"></a> -->
+                                <a [routerLink]="['/knowledge-base/section',  data?.slug]"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

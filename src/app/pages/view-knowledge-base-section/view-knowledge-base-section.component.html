@@ -1,0 +1,158 @@
+<app-header-for-sections></app-header-for-sections>
+
+<main class="main background-gray">
+    <div class="breadcrumbs container">
+        <nav aria-label="breadcrumb" class="breadcrumbs-search-navbar">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a [routerLink]="'/knowledge-base/'">
+                        All Categories
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ sectionData?.fields?.section_name}}
+                </li>
+            </ol>
+
+            <div class="search search--inline">
+                <form>
+                    <i class="ico-search">
+                        <svg>
+                            <use xlink:href="https://buttercms.com/static/v2/images/sprite.1229afca4c5f.svg#ico-search"></use>
+                        </svg>
+                    </i>
+
+                    <input type="search" name="query" id="query" value="" placeholder="Search here"
+                        class="search__field">
+
+                    <button type="submit" class="search__btn btn btn--solid-dark-blue btn--icon">
+                        <i class="ico-arrow-send-white">
+                            <!-- <svg>
+                                <use xlink:href="https://buttercms.com/static/v2/images/sprite.1229afca4c5f.svg#ico-arrow-send-white"></use>
+                            </svg> -->
+                            <svg style="color: white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" fill="white"></path> </svg>
+                        </i>
+                    </button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <section class="section-category">
+        <div class="container">
+            <div class="section-category__head">
+                <div class="d-inline-block">
+                    <div class="category-icon">
+                        <img src="https://cdn.buttercms.com/JsA9TWYQ5upTxBFMiNr9" alt="How To's">
+                    </div>
+                </div>
+                <h1 class="d-inline-block">
+                    {{ sectionData?.fields?.section_name}}
+                </h1>
+                <p class="mt-5">
+                    {{ sectionData?.fields?.section_description }}
+                </p>
+            </div>
+
+
+            <div class="section-category__body">
+                <div class="row">
+                    <div class="col">
+                        <ul *ngIf="sectionData && sectionData?.fields?.section_article_type?.length > 0" class="list-group">
+                            <li *ngFor="let data of sectionData?.fields?.section_article_type" class="list-group-item list-group-item-action">
+                                <h5 class="d-flex justify-content-between">
+                                    {{ data?.fields?.article_name }}
+                                </h5>
+                                <p>
+                                    {{ data?.fields?.article_description }}
+                                </p>
+                                <a [routerLink]="['/knowledge-base/section/' + id + '/article',  data?.slug]"></a>
+                            </li>
+                        </ul>
+
+                        <ul *ngIf="(!sectionData) || ( sectionData && sectionData?.fields?.section_article_type?.length === 0)" class="list-group">
+                            <li class="list-group-item list-group-item-action">
+                                <h5 class="d-flex justify-content-between">
+                                    No Article available
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+
+<!--articles section-->
+<!-- <section class="section-articles section-articles--alt">
+    <div class="container">
+        <footer class="section-articles__foot">
+            <div class="articles-small">
+                <h5 class="articles-small__title">Recent Articles</h5>
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-action">
+                                <a href="/kb/building-a-navigation-menu-using-a-page/">
+                                    <h6>
+                                        Building a Main Navigation Menu Using a Page
+                                    </h6>
+                                    <p>Step by step guide for creating menus, sub-menus, mega menus that you can change
+                                        on the fly</p>
+                                </a>
+                            </li>
+
+                            <li class="list-group-item list-group-item-action">
+                                <a href="/kb/how-to-add-images-to-components/">
+                                    <h6>
+                                        How to Add Images to Components
+                                    </h6>
+                                    <p>Guide on how to add visual thumbnails to components</p>
+                                </a>
+                            </li>
+
+                            <li class="list-group-item list-group-item-action">
+                                <a href="/kb/buttercms-content-review/">
+                                    <h6>
+                                        ButterCMS Content Review for Workflows
+                                    </h6>
+                                    <p>What is ButterCMS Content Review and How Does it Work?</p>
+                                </a>
+                            </li>
+
+                            <li class="list-group-item list-group-item-action">
+                                <a href="/kb/understanding-sso-single-sign-on-sso/">
+                                    <h6>
+                                        How to enable Single Sign-On (SSO) in ButterCMS?
+                                    </h6>
+                                    <p>Single sign-on (SSO) is a session and user authentication service that permits a
+                                        user to use one set of login credentials. SSO log-in is available for our
+                                        Enterprise offerings and is customized to meet your organizations requirements.
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="list-group-item list-group-item-action">
+                                <a href="/kb/moving-content-within-buttercms/">
+                                    <h6>
+                                        Moving Content Within ButterCMS
+                                    </h6>
+                                    <p>Need to move content throughout your Butter account? Please read on...</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</section> -->
